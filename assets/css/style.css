@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+}
+
+.animal-buttons{
+    font-size: 14px;
+    /* height: 16px; */
+    padding: -10px 5px -10px 5px;
+    border-radius: 3px;
+    margin: 5px;
+    /* float: left; */
+    display: inline-block;
+}
+
+.buttons{
+    height: 80px;
+    border: 2px solid lightsalmon;
+    overflow: auto;
+}
+
+.picture-area{
+    height: 480px;
+    padding: 0;
+    overflow: auto;
+    border: 2px solid lightcyan;
+}
+
+img{
+    height: 120px;
+}
+
+.cells{
+    padding: 5px;
+    display: inline-block;
+    float: left;
+    margin: 5px 5px 5px 0px;
+    background-color: yellow;
+}
+
+ .image-button{
+    margin: 2px 10px 0 2px; 
+    border-radius: 5px;
+    font-size: 12px;
+} 
+
+.form{
+    text-align: left;
+    float: right;
+}
+
+#submit{
+    margin-top: 10px;
+    font-size: 12px;
+    color: white;
+    background-color: salmon;
+}
