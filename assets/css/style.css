@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+.blank{
+    height: 60px;
+    width: 100%;
+    background-color: teal;
+    display: block;
+}
+
 .animal-buttons{
     font-size: 14px;
     /* height: 16px; */
@@ -34,7 +41,7 @@ img{
     display: inline-block;
     float: left;
     margin: 5px 5px 5px 0px;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
  .image-button{
@@ -43,9 +50,18 @@ img{
     font-size: 12px;
 } 
 
+.col-md-3{
+    padding-left: 50px;
+    margin-right: 0;
+}
+
 .form{
     text-align: left;
     float: right;
+}
+
+h6{
+    color: darkgray;
 }
 
 #submit{
@@ -53,4 +69,19 @@ img{
     font-size: 12px;
     color: white;
     background-color: salmon;
+}
+
+#my-button{
+    margin-top: 20px;
+    font-size: 12px;
+    color: darkgray;
+    background-color: lightcyan;
+}
+
+button:hover{
+    box-shadow: 0 0 5px grey;
+}
+
+.my{
+    background-color: lightgray;
 }

@@ -1,4 +1,6 @@
-var animals = [];
+var animals = ["cat", "dog", "parrot"];
+var myStill = [];
+var myAnimate = [];
 // function for adding buttons
 function renderButtons(){
     for(var i=0; i<animals.length; i++){
@@ -13,6 +15,7 @@ function renderButtons(){
 
 // function for display gifs
 function displayGif(){
+    // $(".picture-area").prepend("<hr>");
     var name = $(that).attr("data-name");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name + "&api_key=VPWNJ9bWtdDuxswvF8UW3Umnkzlwnb2b"
     console.log(name);
@@ -22,9 +25,8 @@ function displayGif(){
         url: queryURL,
         method: "GET"
     }).then(function(response){
-        $(".picture-area").prepend("<br><p>line</p>");
         // display 10 pics at a time
-        for(var i=clickCount; i<clickCount+3; i++){
+        for(var i=clickCount; i<clickCount+10; i++){
             var stillURL = response.data[i].images.fixed_height_still.url;
             var animateURL = response.data[i].images.fixed_height.url;
             var rating = response.data[i].rating;
@@ -88,13 +90,13 @@ $("#submit").on("click", function(){
 // })
 
 
-// advanced version
+// advanced version, allowing displaying 10 different pics when the same button is clicked twice
 
 $(document).on("click", ".animal-buttons", function(){
     that = this;
     console.log($(that).attr('data-count'));
     displayGif();
-    var newCount = parseInt($(this).attr("data-count")) + 3;
+    var newCount = parseInt($(this).attr("data-count")) + 10;
     $(that).attr("data-count", newCount);
 });
   
@@ -111,3 +113,27 @@ $(document).on("click", "img", function(){
     }
 });
 
+
+// When adding to favorite button is clicked, add the current images URLs to corressponding arrays
+$(".favorite").on("click", function(){
+    var newStillURL = $(this).attr("data-still");
+    var newAnimateURL = $(this).attr("data-animate");
+    myStill.push(newStillURL);
+    myAnimate.push(newAnimateURL);
+})
+
+
+// when my favorite button is clicked, display my favorite images in another page
+
+$("#my-button").on("click", function(){
+    for(var i = 0; i<myStill.length; i++){
+        var myNewImage = $("<img>");
+        myNewImage.attr("src", myStill[i]);
+        myNewImage.attr("data-still", myStill[i]);
+        myNewImage.attr("data-animate", myAnimate[i]);
+        newImage.attr("data-state", "still");
+        $(".my").append(myNewImage);
+    }
+})
+
+renderButtons();
